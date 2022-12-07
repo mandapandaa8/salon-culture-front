@@ -10,7 +10,7 @@ export const NavBar = () => {
     return (
         <div className="container amber pullLeft">
             <a>
-                <Link to={`/mainPage/${userObject.id}`}>My List</Link>
+                {/* <Link to={`/mainPage/${userObject.id}`}>My List</Link> */}
             </a>
 
             {
@@ -18,7 +18,7 @@ export const NavBar = () => {
                     ? <a className="navbar__logout">
                         <Link className="__link" to="" onClick={() => {
                             localStorage.removeItem("salon_user")
-                            navigate("/", { replace: true })
+                            // navigate("/", { replace: true })
                         }}>Logout</Link>
                     </a>
                     : ""
