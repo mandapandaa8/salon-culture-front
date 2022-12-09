@@ -12,6 +12,12 @@ export const NavBar = () => {
             <a>
                 {/* <Link to={`/mainPage/${userObject.id}`}>My List</Link> */}
             </a>
+            <a>
+                <Link to="/artists">Artists</Link>
+            </a>
+            <a>
+                <Link to="/hosts">Hosts</Link>
+            </a>
 
             {
                 localStorage.getItem("salon_user")
