@@ -3,32 +3,36 @@ import "./NavBar.css"
 
 export const NavBar = () => {
     const navigate = useNavigate()
-
-    const SalonUser = localStorage.getItem("salon_user")
-    const userObject = JSON.parse(SalonUser)
-
     return (
-        <div className="container amber pullLeft">
-            <a>
-                {/* <Link to={`/mainPage/${userObject.id}`}>My List</Link> */}
-            </a>
-            <a>
-                <Link to="/artists">Artists</Link>
-            </a>
-            <a>
-                <Link to="/hosts">Hosts</Link>
-            </a>
-
+        <div className="navbar">
+            <div className="navbar__item">
+                <Link className="nav-link" to="/hosts">Hosts</Link>
+            </div>
+            <div className="navbar__item">
+                <Link className="nav-link" to="/artists">Artists</Link>
+            </div>
+            {/* <div className="navbar__item">
+            <Link className="nav-link" to="/events">Event List</Link>
+            </div> */}
             {
-                localStorage.getItem("salon_user")
-                    ? <a className="navbar__logout">
-                        <Link className="__link" to="" onClick={() => {
-                            localStorage.removeItem("salon_user")
-                            // navigate("/", { replace: true })
-                        }}>Logout</Link>
-                    </a>
-                    : ""
-            }
-        </div>
+                (localStorage.getItem("lu_token") !== null) ?
+                    <div className="nav-item">
+                        <button className="nav-link fakeLink"
+                            onClick={() => {
+                                localStorage.removeItem("lu_token")
+                                navigate('/login')
+                            }}
+                        >Logout</button>
+                    </div> :
+                    <>
+                        <div className="nav-item">
+                            <Link className="nav-link" to="/login">Login</Link>
+                        </div>
+                        <div className="nav-item">
+                            <Link className="nav-link" to="/register">Register</Link>
+                        </div>
+                    </>
+            }    </div>  
     )
 }
+

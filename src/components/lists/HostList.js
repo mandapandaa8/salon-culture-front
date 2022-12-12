@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react"
-import { Link, useNavigate} from "react-router-dom"
-import { getHost, getHostById, getCurrentHost } from "../../managers/HostManager"
+import { Link } from "react-router-dom"
+import { getHost } from "../../managers/HostManager"
 
 export const HostList = () => {
     const [hosts, setHosts] = useState([])
-    const navigate = useNavigate()
 
     useEffect(() => {
         getHost()

@@ -24,6 +24,7 @@ export const RegisterArtist = () => {
             const newArtist = {
                 "account_type": "artist",
                 "username": username.current.value,
+                "is_staff": false,
                 "first_name": firstName.current.value,
                 "last_name": lastName.current.value,
                 "email": email.current.value,
@@ -37,7 +38,7 @@ export const RegisterArtist = () => {
                 .then(res => {
                     if ("token" in res) {
                         localStorage.setItem("lu_token", res.token)
-                        // navigate("/")
+                        navigate("/login")
                     }
                 })
         } else {
@@ -94,6 +95,7 @@ export const RegisterArtist = () => {
                 <fieldset style={{
                     textAlign: "center"
                 }}>
+                    
                     <button className="btn btn-1 btn-sep icon-send" type="submit">Register as an Artist</button>
                 </fieldset>
             </form>
