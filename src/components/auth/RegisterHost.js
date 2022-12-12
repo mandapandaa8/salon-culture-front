@@ -20,8 +20,9 @@ export const RegisterHost = () => {
         e.preventDefault()
 
         if (password.current.value === verifyPassword.current.value) {
-            const newUser = {
+            const newHost = {
                 "account_type": "host",
+                "is_staff": true,
                 "username": username.current.value,
                 "first_name": firstName.current.value,
                 "last_name": lastName.current.value,
@@ -32,11 +33,11 @@ export const RegisterHost = () => {
                 "password": password.current.value
             }
 
-            registerUser(newUser)
+            registerUser(newHost)
                 .then(res => {
                     if ("token" in res) {
                         localStorage.setItem("lu_token", res.token)
-                        // navigate("/")
+                        navigate("/login")
                     }
                 })
         } else {

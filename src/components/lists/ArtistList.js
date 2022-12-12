@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import { getArtists, getArtistById, getCurrentArtist } from "../../managers/ArtistManager"
-import { Link, useNavigate } from "react-router-dom"
+import { getArtists } from "../../managers/ArtistManager"
+import { Link } from "react-router-dom"
 
 export const ArtistList = () => {
     const [artists, setArtists] = useState([])

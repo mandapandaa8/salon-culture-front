@@ -12,7 +12,7 @@ export const getHost = () => {
 }
 
 export const getCurrentHost = () => {
-    return fetch ("http://localhost:8000/currenthost", {
+    return fetch ("http://localhost:8000/hosts/currenthost", {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
