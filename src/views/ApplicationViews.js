@@ -6,6 +6,8 @@ import { ArtistList } from "../components/lists/ArtistList"
 import { HostList } from "../components/lists/HostList"
 import { LandingPage } from "../components/lists/LandingPage"
 import { ArtistProfile } from "../components/profiles/ArtistProfile"
+import { EditArtist } from "../components/profiles/EditArtistProfile"
+import { EditHost } from "../components/profiles/EditHostProfile"
 import { HostProfile } from "../components/profiles/HostProfile"
 import { Authorized } from "./Authorized"
 
@@ -20,10 +22,10 @@ export const ApplicationViews = () => {
             <Route element={<Authorized />} />
                 <Route path="/artists" element={< ArtistList />} />
                 <Route path="/artists/:artistId" element={<ArtistProfile />} />
-                {/* <Route path="/artists/:artistId(\d+)/edit" element={<ArtistEditForm />} /> */}
+                <Route path="/artists/:artistId/edit" element={< EditArtist />} />
                 <Route path="/hosts" element={< HostList />} />
                 <Route path="/hosts/:hostId" element={< HostProfile />} />
-                {/* <Route path="/hosts/:hostId(\d+)/edit" element={<HostEditForm />} /> */}
+                <Route path="/hosts/:hostId/edit" element={<EditHost />} />
                 <Route path="/" element={< LandingPage />} />
 
         </Routes>

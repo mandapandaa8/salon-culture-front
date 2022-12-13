@@ -5,6 +5,9 @@ export const NavBar = () => {
     const navigate = useNavigate()
     return (
         <div className="navbar">
+            <div className="nav-item">
+                <Link className="nav-link" to="/">Home</Link>
+            </div>
             <div className="navbar__item">
                 <Link className="nav-link" to="/hosts">Hosts</Link>
             </div>
@@ -32,7 +35,7 @@ export const NavBar = () => {
                             <Link className="nav-link" to="/register">Register</Link>
                         </div>
                     </>
-            }    </div>  
+            }    </div>
     )
 }
 
