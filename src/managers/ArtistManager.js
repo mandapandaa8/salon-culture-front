@@ -11,18 +11,6 @@ export const getArtists = () => {
         .then(res => res.json())
 }
 
-export const getCurrentArtist = () => {
-    return fetch ("http://localhost:8000/currentartist", {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json",
-            "Authorization": `Token ${localStorage.getItem("lu_token")}`
-        }
-    })
-        .then(res => res.json())
-}
-
 export const getArtistById = (id) => {
     return fetch(`http://localhost:8000/artists/${id}`, {
         method: "GET",
@@ -46,7 +34,6 @@ export const editArtist = (artist) => {
         },
         body: JSON.stringify(artist)
     })
-        .then(res => res.json())
 }
 
 export const deleteArtist = (id) => {
