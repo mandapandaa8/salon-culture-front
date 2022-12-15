@@ -8,21 +8,25 @@ export const NavBar = () => {
             <div className="nav-item">
                 <Link className="nav-link" to="/">Home</Link>
             </div>
+            {/* <div className="navbar__item">
+                <Link className="nav-link" to="/myprofile">My Profile</Link>
+            </div> */}
             <div className="navbar__item">
                 <Link className="nav-link" to="/hosts">Hosts</Link>
             </div>
             <div className="navbar__item">
                 <Link className="nav-link" to="/artists">Artists</Link>
             </div>
-            {/* <div className="navbar__item">
+            <div className="navbar__item">
             <Link className="nav-link" to="/events">Event List</Link>
-            </div> */}
+            </div>
             {
                 (localStorage.getItem("lu_token") !== null) ?
                     <div className="nav-item">
                         <button className="nav-link fakeLink"
                             onClick={() => {
-                                localStorage.removeItem("lu_token")
+                                localStorage.removeItem("lu_token");
+                                localStorage.removeItem("is_staff")
                                 navigate('/login')
                             }}
                         >Logout</button>

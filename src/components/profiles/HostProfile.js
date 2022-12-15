@@ -24,7 +24,16 @@ export const HostProfile = () => {
                 {
                     host.my_profile === true
                     ? <>
-                        <button className="button" onClick={() => navigate(`/hosts/${host.id}/edit`)}>Edit</button>
+                        <button className="button" onClick={() => navigate(`/hosts/${host.id}/edit`)}>Edit Profile</button>
+                    </>
+                    : <></>
+                }
+            </div>
+            <div className="hostProfile__button">
+                {
+                    host.my_profile === true
+                    ? <>
+                        <button className="button" onClick={() => navigate(`/hosts/${host.id}/create`)}>Create Event</button>
                     </>
                     : <></>
                 }
