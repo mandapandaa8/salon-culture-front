@@ -1,22 +1,19 @@
 import { useEffect, useState } from "react"
-import { Link, useNavigate, useParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { getEvents, joinEvent, leaveEvent } from "../../managers/EventManager"
-import { getHost, getHostById } from "../../managers/HostManager"
 
 export const EventList = () => {
     const [events, setEvents] = useState([])
-    const navigate = useNavigate()
     const salonUser = localStorage.getItem("is_staff")
-
-    useEffect(() => {
-        getEvents()
-            .then(setEvents)
-    }, [])
-
+    
     const updateEventList = () => {
         getEvents()
             .then(setEvents)
     }
+
+    useEffect(() => {
+        updateEventList()
+    }, [])
 
     const handleJoinButton = (eventId) => {
         joinEvent(eventId).then(updateEventList)

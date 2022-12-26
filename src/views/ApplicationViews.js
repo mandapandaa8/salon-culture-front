@@ -13,6 +13,7 @@ import { ArtistProfile } from "../components/profiles/ArtistProfile"
 import { EditArtist } from "../components/profiles/EditArtistProfile"
 import { EditHost } from "../components/profiles/EditHostProfile"
 import { HostProfile } from "../components/profiles/HostProfile"
+import { MyProfile } from "../components/profiles/MyProfile"
 import { Authorized } from "./Authorized"
 
 
@@ -35,7 +36,8 @@ export const ApplicationViews = () => {
                 <Route path="/events/:eventId" element={< EventDetails />} />
                 <Route path="/hosts/:hostId/create" element={< EventForm />} />
                 <Route path="/events/:eventId/edit" element={< EditEvent />} />
-                {/* <Route path="/myprofile" element={< LoggedInUser />} /> */}
+                <Route path="/myprofile" element={< MyProfile />} />
+
 
         </Routes>
     </>
