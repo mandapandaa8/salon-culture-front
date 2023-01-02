@@ -36,9 +36,6 @@ export const ApplicationViews = () => {
                 <Route path="/events/:eventId" element={< EventDetails />} />
                 <Route path="/hosts/:hostId/create" element={< EventForm />} />
                 <Route path="/events/:eventId/edit" element={< EditEvent />} />
-                <Route path="/myprofile" element={< MyProfile />} />
-
-
         </Routes>
     </>
 }

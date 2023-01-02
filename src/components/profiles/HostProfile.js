@@ -14,7 +14,7 @@ export const HostProfile = () => {
 
     return (
         <section className="hostProfile">
-            <header className="hostProfile__header"><h1>{host.username}</h1></header>
+            <header className="hostProfile__header"><h2>{host.username}</h2></header>
             <div className="hostProfile__image"><img src={host.profile_img} /></div>
             <div className="hostProfile__name">{host.first_name} {host.last_name}</div>
             <div className="hostProfile_email">{host.email}</div>

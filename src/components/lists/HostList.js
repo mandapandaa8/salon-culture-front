@@ -9,20 +9,22 @@ export const HostList = () => {
         getHost()
             .then(setHosts)
     }
-    , [])
+        , [])
 
     return (
         <>
-            <h1>Hosts</h1>
+            <h2 className="host_head">Hosts</h2>
             <div className="hosts">
                 {
                     hosts.map(host => {
-                        return <div className="host" key={host.id}>
-                            <Link to={`/hosts/${host.id}`}>
-                                <div className="host__name">{host.user.username}</div>
-                            </Link>
+                        return <ul>
+                            <div className="host" key={host.id}>
+                                <Link to={`/hosts/${host.id}`}>
+                                    <div className="host__name">{host.user.username}</div>
+                                </Link>
                                 <div className="host__image"><img src={host.profile_img} /></div>
-                        </div>
+                            </div>
+                        </ul>
                     })
                 }
             </div>

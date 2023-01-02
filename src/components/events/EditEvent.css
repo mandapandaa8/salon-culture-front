@@ -1,0 +1,12 @@
+form.eventForm {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: black;
+    border: solid 1px white;
+    width: 70%;
+    margin: 0 auto;
+    color: white;
+    margin-bottom: 5rem;
+}

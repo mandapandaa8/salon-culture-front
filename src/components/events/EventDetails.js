@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
-import { Link, useNavigate, useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { deleteEvent, getEventById } from "../../managers/EventManager"
-import { getHostById } from "../../managers/HostManager"
 
 export const EventDetails = () => {
     const { eventId } = useParams()
@@ -15,10 +14,10 @@ export const EventDetails = () => {
 
 
     return (
-        <>
-            <h1>Event Details</h1>
+        <div class="event_details">
+            <h2>Event Details:</h2>
             <div className="event">
-                <div className="event__name">{event.name}</div>
+                <h2 className="event__name">{event.name}</h2>
                 <div className="event__date">Date: {event.date}</div>
                 <div className="event__time">Time: {event.time}</div>
                 <div className="event__capacity">Capacity: {event.capacity}</div>
@@ -49,6 +48,6 @@ export const EventDetails = () => {
                     }
                 </div>
             </div>
-        </>
+        </div>
     )
 }

@@ -55,7 +55,7 @@ export const RegisterArtist = () => {
             </dialog>
 
             <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Create an Artist Profile</h1>
+                <h2 className="h3 mb-3 font-weight-normal">Create an Artist Profile</h2>
                 <fieldset>
                     <label htmlFor="firstName"> First Name </label>
                     <input ref={firstName} type="text" name="firstName" className="form-control" placeholder="First name" required autoFocus />
@@ -96,7 +96,7 @@ export const RegisterArtist = () => {
                     textAlign: "center"
                 }}>
                     
-                    <button className="btn btn-1 btn-sep icon-send" type="submit">Register as an Artist</button>
+                    <button class="button-50" role="button" type="submit">Register</button>
                 </fieldset>
             </form>
             <section className="link--register">

@@ -20,7 +20,8 @@ export const Login = () => {
             .then(res => {
                 if ("valid" in res && res.valid && "token" in res) {
                     localStorage.setItem("lu_token", res.token);
-                    localStorage.setItem("is_staff", res.staff)
+                    localStorage.setItem("is_staff", res.staff);
+                    localStorage.setItem("user", JSON.stringify(res))
                     navigate("/")
                 }
                 else {
@@ -41,7 +42,7 @@ export const Login = () => {
                     <h2>Please sign in</h2>
                     <fieldset>
                         <label htmlFor="inputUsername"> Username</label>
-                        <input ref={username} type="username" id="username" className="form-control" placeholder="Username address" required autoFocus />
+                        <input ref={username} type="username" id="username" className="form-control" placeholder="Username" required autoFocus />
                     </fieldset>
                     <fieldset>
                         <label htmlFor="inputPassword"> Password </label>
@@ -50,7 +51,7 @@ export const Login = () => {
                     <fieldset style={{
                         textAlign: "center"
                     }}>
-                        <button className="btn btn-1 btn-sep icon-send" type="submit">Sign In</button>
+                        <button class="button-50" role="button">Sign In</button>
                     </fieldset>
                 </form>
             </section>

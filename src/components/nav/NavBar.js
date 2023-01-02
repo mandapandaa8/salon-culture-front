@@ -1,30 +1,66 @@
-import { Link, useNavigate } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { Link, useNavigate, useParams } from "react-router-dom"
+import { getArtists, getArtistById } from "../../managers/ArtistManager"
+import { getHost, getHostById } from "../../managers/HostManager"
 import "./NavBar.css"
 
 export const NavBar = () => {
     const navigate = useNavigate()
+    const [hosts, setArtist] = useState([])
+    const [artists, setHost] = useState([])
+    const currentUser = localStorage.getItem("user")
+
+    useEffect(() => {
+        getHost()
+            .then(setHost)
+    }, [])
+
+    useEffect(() => {
+        getArtists()
+            .then(setArtist)
+    }, [])
+    
+
+
     return (
-        <div className="navbar">
+        <div class="container gray borderXwidth">
             {
                 (localStorage.getItem("lu_token") !== null) ?
-                    <div className="nav-item">
+                    <div class="nav">
                         <>
-                            <div className="nav-item">
-                                <Link className="nav-link" to="/">Home</Link>
+                            <div class="nav-item">
+                                <Link class="nav-link" to="/">Home</Link>
                             </div>
-                            <div className="navbar__item">
-                                <Link className="nav-link" to="/myprofile">My Profile</Link>
+                            <div class="nav-item">
+                                {
+                                    //get the logged in user's id and compare it to the host id
+                                    //if they match, show the host profile
+                                    //if they don't match, show the artist profile
+                                    localStorage.getItem("user") === true 
+                                        ?
+                                        hosts.map(host => {
+                                            return <div class="nav-item" key={host.id}>
+                                                <Link class="nav-link" to={`/hosts/${host.id}`}>My Profile</Link>
+                                            </div>
+                                        })
+                                        :
+                                        artists.map(artist => {
+                                            return <div class="nav-item" key={artist.id}>
+                                                <Link class="nav-link" to={`/artists/${artist.id}`}>My Profile</Link>
+                                            </div>
+                                        })
+                                }
                             </div>
-                            <div className="navbar__item">
-                                <Link className="nav-link" to="/hosts">Hosts</Link>
+                            <div class="nav-item">
+                                <Link class="nav-link" to="/hosts">Hosts</Link>
                             </div>
-                            <div className="navbar__item">
-                                <Link className="nav-link" to="/artists">Artists</Link>
+                            <div class="nav-item">
+                                <Link class="nav-link" to="/artists">Artists</Link>
                             </div>
-                            <div className="navbar__item">
-                                <Link className="nav-link" to="/events">Event List</Link>
+                            <div class="nav-item">
+                                <Link class="nav-link" to="/events">Event List</Link>
                             </div> </>
-                        <button className="nav-link fakeLink"
+                        <button class="button-50"
                             onClick={() => {
                                 localStorage.removeItem("lu_token");
                                 localStorage.removeItem("is_staff")
@@ -32,11 +68,14 @@ export const NavBar = () => {
                             }}>Logout</button>
                     </div> :
                     <>
-                        <div className="nav-item">
-                            <Link className="nav-link" to="/login">Login</Link>
+                        <div class="nav-item">
+                            <Link class="nav-link" to="/login">Login</Link>
                         </div>
-                        <div className="nav-item">
-                            <Link className="nav-link" to="/register">Register</Link>
+                        <div class="nav-item">
+                            <Link class="nav-link" to="/registerhost">Host Registration</Link>
+                        </div>
+                        <div class="nav-item">
+                            <Link class="nav-link" to="/registerartist">Artist Registration</Link>
                         </div>
                     </>
             }

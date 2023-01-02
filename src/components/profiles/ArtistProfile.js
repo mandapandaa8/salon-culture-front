@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { getArtistById } from "../../managers/ArtistManager"
+import "./EditProfile.css"
 
 export const ArtistProfile = () => {
     const [artist, setArtist] = useState({})
@@ -14,7 +15,7 @@ export const ArtistProfile = () => {
 
     return (
         <section className="artistProfile">
-            <header className="artistProfile__header"><h1>{artist.username}</h1></header>
+            <header className="artistProfile__header"><h2>{artist.username}</h2></header>
             <div className="artistProfile__image"><img src={artist.profile_img} /></div>
             <div className="artistProfile__name">{artist.first_name} {artist.last_name}</div>
             <div className="artistProfile_email">{artist.email}</div>

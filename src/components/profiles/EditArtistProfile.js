@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { editArtist, getArtistById } from "../../managers/ArtistManager"
+import "./EditProfile.css"
 
 export const EditArtist = () => {
     const { artistId } = useParams()
@@ -30,38 +31,38 @@ export const EditArtist = () => {
 
     return (
         <form className="artistForm">
-            <h2 className="artistForm__title">Edit My Profile</h2>
+            <h2 className="artistForm__title">Edit My Profile:</h2>
             <fieldset>
-                <div className="form-group">
+                <div className="edit_profile">
                     <label htmlFor="username">Username: </label>
                     <input type="text" id="username" onChange={changeArtistState} required autoFocus className="form-control" placeholder="Username" value={currentArtist.username} />
                 </div>
             </fieldset>
             <fieldset>
-                <div className="form-group">
+                <div className="edit_profile">
                     <label htmlFor="email">Email: </label>
                     <input type="text" id="email" onChange={changeArtistState} required autoFocus className="form-control" placeholder="Email" value={currentArtist.email} />
                 </div>
             </fieldset>
             <fieldset>
-                <div className="form-group">
+                <div className="edit_profile">
                     <label htmlFor="cv">CV: </label>
                     <input type="text" id="cv" onChange={changeArtistState} required autoFocus className="form-control" placeholder="CV" value={currentArtist.cv} />
                 </div>
             </fieldset>
             <fieldset>
-                <div className="form-group">
+                <div className="edit_profile">
                     <label htmlFor="medium">Medium: </label>
                     <input type="text" id="medium" onChange={changeArtistState} required autoFocus className="form-control" placeholder="Medium" value={currentArtist.medium} />
                 </div>
             </fieldset>
             <fieldset>
-                <div className="form-group">
+                <div className="edit_profile">
                     <label htmlFor="profile_img">Profile Image: </label>
                     <input type="text" id="profile_img" onChange={changeArtistState} required autoFocus className="form-control" placeholder="Profile Image" value={currentArtist.profile_img} />
                 </div>
             </fieldset>
-            <button className="btn btn-primary"
+            <button className="button-50"
                 onClick={evt => {
                     evt.preventDefault()
                     editArtist(currentArtist)

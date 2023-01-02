@@ -1,0 +1,76 @@
+@import 'https://fonts.googleapis.com/css?family=Raleway';
+
+html,
+body {
+    margin: 0px;
+}
+
+header h1 {
+    color: #AAA;
+    font-size: 40px;
+    font-weight: lighter;
+    margin-bottom: 5px;
+}
+
+div.container {
+    font-family: Raleway;
+    margin: 0 auto;
+    text-align: center;
+}
+
+div.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+div.container div.nav-item {
+    color: #FFF;
+    text-decoration: none;
+    font: 20px Raleway;
+    margin: 0px 10px;
+    padding: 10px 10px;
+    position: relative;
+    z-index: 0;
+    cursor: pointer;
+}
+
+.gray {
+    background: rgb(0, 0, 0);
+}
+
+/* Border X get width  */
+div.borderXwidth div.nav-item:before,
+div.borderXwidth div.nav-item:after {
+    position: absolute;
+    opacity: 0;
+    width: 0%;
+    height: 2px;
+    content: '';
+    background: #FFF;
+    transition: all 0.3s;
+}
+
+div.borderXwidth div.nav-item:before {
+    left: 0px;
+    top: 0px;
+}
+
+div.borderXwidth div.nav-item:after {
+    right: 0px;
+    bottom: 0px;
+}
+
+div.borderXwidth div.nav-item:hover:before,
+div.borderXwidth div.nav-item:hover:after {
+    opacity: 1;
+    width: 100%;
+}
+
+.nav-link {
+    color: #FFF;
+}
+
+.nav-link:hover {
+    color: rgb(146, 146, 154)
+}
