@@ -184,11 +184,16 @@ h2.event_head {
     padding-top: 1rem;
 }
 
+.event__name {
+    display: flex;
+    justify-content: center;
+}
+
 .event_details {
     margin-left: 2rem;
     margin-right: 2rem;
 }
 
 .event__item {
-    padding-bottom: 3px;
+    padding-bottom: 5px;
 }

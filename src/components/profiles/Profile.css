@@ -1,0 +1,25 @@
+
+.hostProfile, .artistProfile {
+    background-color: black;
+    color: white;
+    padding-bottom: 20rem;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    padding-right: 13rem;
+}
+
+.hostProfile__field, .artistProfile__field {
+    margin-left: 12rem;
+    margin-bottom: 1rem;
+    display: flex;
+    font-family: 'Poiret One';
+    font-size: 24px;
+    
+}
+
+.hostProfile__header, .artistProfile__header {
+    margin-left: 8rem;
+    margin-bottom: 2rem;
+
+}

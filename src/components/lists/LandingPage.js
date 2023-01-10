@@ -4,9 +4,8 @@ import "./landing.css"
 export const LandingPage = () => {
     const navigate = useNavigate()
 
-
     return (
-        <div class="landing_page">
+        <div className="landing_page">
             <h1>Salon Culture</h1>
             <div className="landing_section">
                 <button className="button-50" onClick={() => navigate("/artists")}>Artists</button>

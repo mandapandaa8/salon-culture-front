@@ -6,7 +6,6 @@ import "./Events.css"
 export const EventList = () => {
     const [events, setEvents] = useState([])
     const salonUser = localStorage.getItem("is_staff")
-    const [counter, setCounter] = useState(0);
 
     const updateEventList = () => {
         getEvents()
@@ -17,14 +16,16 @@ export const EventList = () => {
         updateEventList()
     }, [])
 
-    const handleJoinButton = (eventId) => {
-        joinEvent(eventId).then(updateEventList);
-        setCounter(count => count + 1);
+    const handleJoinButton = (event) => {
+        if (event.capacity === event.attendee_count) {
+            alert("Sorry, this event is at max capacity")
+        } else {
+            joinEvent(event.id).then(updateEventList);
+        }
     }
 
     const handleLeaveButton = (eventId) => {
         leaveEvent(eventId).then(updateEventList);
-        setCounter(count => count - 1);
     }
 
     useEffect(() => {
@@ -41,12 +42,11 @@ export const EventList = () => {
                             <Link to={`/events/${event.id}`}>
                                 <div className="event__item">{event.name}</div>
                             </Link>
-                            <div className="event__item">Date: {event.date}</div>
-                            <div className="event__item">Time: {event.time}</div>
-                            <div className="event__item">Capacity: {event.capacity}</div>
-                            <div className="event__item">Host: {event?.host?.user?.username}</div>
-
-                            <span className="counter__output">{counter}</span>
+                            <div className="event__item"><b>Date:</b> {event.date}</div>
+                            <div className="event__item"><b>Time:</b> {event.time}</div>
+                            <div className="event__item"><b>Capacity:</b> {event.capacity}</div>
+                            <div className="event__item"><b>Host:</b> {event?.host?.user?.username}</div>
+                            <div className="event__item">{event.attendee_count}</div>
                             {
                                 JSON.parse(salonUser)
                                     ? <></>
@@ -54,7 +54,7 @@ export const EventList = () => {
                                         {
                                             event.joined
                                                 ? <button className="button-30_leave" onClick={() => handleLeaveButton(event.id)}>Leave</button>
-                                                : <button className="button-30" onClick={() => handleJoinButton(event.id)}>Join</button>
+                                                : <button className="button-30" onClick={() => handleJoinButton(event)}>Join</button>
                                         }
                                     </>
                             }

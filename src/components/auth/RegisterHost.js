@@ -94,7 +94,7 @@ export const RegisterHost = () => {
                 <fieldset style={{
                     textAlign: "center"
                 }}>
-                    <button class="button-50" role="button" type="submit">Register</button>
+                    <button className="button-50" role="button" type="submit">Register</button>
                 </fieldset>
             </form>
             <section className="link--register">

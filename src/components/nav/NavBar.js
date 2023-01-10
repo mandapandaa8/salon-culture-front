@@ -1,66 +1,65 @@
 import { useEffect, useState } from "react"
-import { Link, useNavigate, useParams } from "react-router-dom"
-import { getArtists, getArtistById } from "../../managers/ArtistManager"
-import { getHost, getHostById } from "../../managers/HostManager"
+import { Link, useNavigate } from "react-router-dom"
+import { getArtists } from "../../managers/ArtistManager"
+import { getHost } from "../../managers/HostManager"
 import "./NavBar.css"
 
 export const NavBar = () => {
     const navigate = useNavigate()
-    const [hosts, setArtist] = useState([])
-    const [artists, setHost] = useState([])
+    const [hosts, setHosts] = useState([])
+    const [artists, setArtists] = useState([])
     const currentUser = localStorage.getItem("user")
+    const userObj = JSON.parse(currentUser)
 
     useEffect(() => {
         getHost()
-            .then(setHost)
+            .then(setHosts)
     }, [])
 
     useEffect(() => {
         getArtists()
-            .then(setArtist)
+            .then(setArtists)
     }, [])
-    
+
 
 
     return (
-        <div class="container gray borderXwidth">
+        <div className="container gray borderXwidth">
             {
                 (localStorage.getItem("lu_token") !== null) ?
-                    <div class="nav">
+                    <div className="nav">
                         <>
-                            <div class="nav-item">
-                                <Link class="nav-link" to="/">Home</Link>
+                            <div className="nav-item">
+                                <Link className="nav-link" to="/">Home</Link>
                             </div>
-                            <div class="nav-item">
+                            <div className="nav-item">
                                 {
                                     //get the logged in user's id and compare it to the host id
                                     //if they match, show the host profile
                                     //if they don't match, show the artist profile
-                                    localStorage.getItem("user") === true 
-                                        ?
-                                        hosts.map(host => {
-                                            return <div class="nav-item" key={host.id}>
-                                                <Link class="nav-link" to={`/hosts/${host.id}`}>My Profile</Link>
-                                            </div>
-                                        })
-                                        :
-                                        artists.map(artist => {
-                                            return <div class="nav-item" key={artist.id}>
-                                                <Link class="nav-link" to={`/artists/${artist.id}`}>My Profile</Link>
-                                            </div>
-                                        })
+                                    hosts.map(host => {
+                                        if (userObj?.username === host?.user?.username) 
+                                        return <Link className="nav-link" to={`/hosts/${host.id}`}>My Profile</Link>
+                                    })
                                 }
+                                {
+                                    artists.map(artist => {
+                                        if (userObj?.username === artist?.user?.username) 
+                                        return <Link className="nav-link" to={`/artists/${artist.id}`}>My Profile</Link>
+                                    })
+                                }
+
                             </div>
-                            <div class="nav-item">
-                                <Link class="nav-link" to="/hosts">Hosts</Link>
+                            <div className="nav-item">
+                                <Link className="nav-link" to="/hosts">Hosts</Link>
                             </div>
-                            <div class="nav-item">
-                                <Link class="nav-link" to="/artists">Artists</Link>
+                            <div className="nav-item">
+                                <Link className="nav-link" to="/artists">Artists</Link>
                             </div>
-                            <div class="nav-item">
-                                <Link class="nav-link" to="/events">Event List</Link>
+                            <div className="nav-item">
+                                <Link className="nav-link" to="/events">Event List</Link>
                             </div> </>
-                        <button class="button-50"
+                        <button className="button-50"
                             onClick={() => {
                                 localStorage.removeItem("lu_token");
                                 localStorage.removeItem("is_staff")
@@ -68,14 +67,14 @@ export const NavBar = () => {
                             }}>Logout</button>
                     </div> :
                     <>
-                        <div class="nav-item">
-                            <Link class="nav-link" to="/login">Login</Link>
+                        <div className="nav-item">
+                            <Link className="nav-link" to="/login">Login</Link>
                         </div>
-                        <div class="nav-item">
-                            <Link class="nav-link" to="/registerhost">Host Registration</Link>
+                        <div className="nav-item">
+                            <Link className="nav-link" to="/registerhost">Host Registration</Link>
                         </div>
-                        <div class="nav-item">
-                            <Link class="nav-link" to="/registerartist">Artist Registration</Link>
+                        <div className="nav-item">
+                            <Link className="nav-link" to="/registerartist">Artist Registration</Link>
                         </div>
                     </>
             }

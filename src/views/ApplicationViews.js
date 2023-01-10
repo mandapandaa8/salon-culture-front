@@ -6,15 +6,14 @@ import { EditEvent } from "../components/events/EditEvent"
 import { EventDetails } from "../components/events/EventDetails"
 import { EventForm } from "../components/events/EventForm"
 import { EventList } from "../components/events/EventList"
-import { ArtistList } from "../components/lists/ArtistList"
-import { HostList } from "../components/lists/HostList"
 import { LandingPage } from "../components/lists/LandingPage"
+import { ArtistListSearchContainer } from "../components/lists/ArtistListSearchContainer"
 import { ArtistProfile } from "../components/profiles/ArtistProfile"
 import { EditArtist } from "../components/profiles/EditArtistProfile"
 import { EditHost } from "../components/profiles/EditHostProfile"
 import { HostProfile } from "../components/profiles/HostProfile"
-import { MyProfile } from "../components/profiles/MyProfile"
 import { Authorized } from "./Authorized"
+import { HostListSearchContainer } from "../components/lists/HostListSearchContainer"
 
 
 
@@ -25,17 +24,17 @@ export const ApplicationViews = () => {
             <Route path="/registerartist" element={< RegisterArtist />} />
             <Route path="/registerhost" element={< RegisterHost />} />
             <Route element={<Authorized />} />
-                <Route path="/artists" element={< ArtistList />} />
-                <Route path="/artists/:artistId" element={< ArtistProfile />} />
-                <Route path="/artists/:artistId/edit" element={< EditArtist />} />
-                <Route path="/hosts" element={< HostList />} />
-                <Route path="/hosts/:hostId" element={< HostProfile />} />
-                <Route path="/hosts/:hostId/edit" element={< EditHost />} />
-                <Route path="/" element={< LandingPage />} />
-                <Route path="/events" element={< EventList />} />
-                <Route path="/events/:eventId" element={< EventDetails />} />
-                <Route path="/hosts/:hostId/create" element={< EventForm />} />
-                <Route path="/events/:eventId/edit" element={< EditEvent />} />
+            <Route path="/artists" element={< ArtistListSearchContainer/>} />
+            <Route path="/artists/:artistId" element={< ArtistProfile />} />
+            <Route path="/artists/:artistId/edit" element={< EditArtist />} />
+            <Route path="/hosts" element={< HostListSearchContainer />} />
+            <Route path="/hosts/:hostId" element={< HostProfile />} />
+            <Route path="/hosts/:hostId/edit" element={< EditHost />} />
+            <Route path="/" element={< LandingPage />} />
+            <Route path="/events" element={< EventList />} />
+            <Route path="/events/:eventId" element={< EventDetails />} />
+            <Route path="/hosts/:hostId/create" element={< EventForm />} />
+            <Route path="/events/:eventId/edit" element={< EditEvent />} />
         </Routes>
     </>
 }
