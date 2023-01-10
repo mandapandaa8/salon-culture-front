@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getHostById } from "../../managers/HostManager";
+import { getEvents } from "../../managers/EventManager";
+import "./Profile.css"
 
 export const HostProfile = () => {
     const { hostId } = useParams();
     const [host, setHost] = useState({});
+    const [events, setEvents] = useState([])
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -12,30 +15,37 @@ export const HostProfile = () => {
             .then(setHost)
     }, [])
 
+    useEffect(() => {
+        getEvents(events => setEvents(events))
+    }, [])
+
+    const hostedEvents = events.filter(event => event.host === host.id)
+
+
     return (
         <section className="hostProfile">
-            <header className="hostProfile__header"><h1>{host.username}</h1></header>
-            <div className="hostProfile__image"><img src={host.profile_img} /></div>
-            <div className="hostProfile__name">{host.first_name} {host.last_name}</div>
-            <div className="hostProfile_email">{host.email}</div>
-            <div className="hostProfile__cv">{host.address}</div>
-            <div className="hostProfile__medium">{host.description}</div>
-            <div className="hostProfile__button">
+            <h2 className="hostProfile__header">{host.username}</h2>
+            <div className="hostProfile__field host_img"><img src={host.profile_img} /></div>
+            <div className="hostProfile__field">Name: {host.first_name} {host.last_name}</div>
+            <div className="hostProfile__field">Email: {host.email}</div>
+            <div className="hostProfile__field">Address: {host.address}</div>
+            <div className="hostProfile__field">Description: {host.description}</div>
+            <div className="hostProfile__button hostProfile__field">
                 {
                     host.my_profile === true
-                    ? <>
-                        <button className="button" onClick={() => navigate(`/hosts/${host.id}/edit`)}>Edit Profile</button>
-                    </>
-                    : <></>
+                        ? <>
+                            <button className="button-30" onClick={() => navigate(`/hosts/${host.id}/edit`)}>Edit Profile</button>
+                        </>
+                        : <></>
                 }
             </div>
-            <div className="hostProfile__button">
+            <div className="hostProfile__button hostProfile__field">
                 {
                     host.my_profile === true
-                    ? <>
-                        <button className="button" onClick={() => navigate(`/hosts/${host.id}/create`)}>Create Event</button>
-                    </>
-                    : <></>
+                        ? <>
+                            <button className="button-30" onClick={() => navigate(`/hosts/${host.id}/create`)}>Create Event</button>
+                        </>
+                        : <></>
                 }
             </div>
         </section>

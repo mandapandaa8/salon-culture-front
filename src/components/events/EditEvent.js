@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getAccommodations } from "../../managers/AccommodationManager";
 import { getEventById, updateEvent } from "../../managers/EventManager";
+import "./EditEvent.css";
 
 export const EditEvent = () => {
     const { eventId } = useParams();
@@ -36,58 +37,58 @@ export const EditEvent = () => {
 
     return (
         <>
-            <h1>Edit Event</h1>
             <form className="eventForm">
+                <h2 className="">Edit Event:</h2>
                 <fieldset>
                     <div className="form-group">
                         <label htmlFor="name">Name: </label>
-                        <input 
-                        type="text" 
-                        id="name" 
-                        onChange={changeEventState} 
-                        required autoFocus 
-                        className="form-control" 
-                        placeholder="Name" 
-                        value={currentEvent.name} />
+                        <input
+                            type="text"
+                            id="name"
+                            onChange={changeEventState}
+                            required autoFocus
+                            className="form-control"
+                            placeholder="Name"
+                            value={currentEvent.name} />
                     </div>
                 </fieldset>
                 <fieldset>
                     <div className="form-group">
                         <label htmlFor="date">Date: </label>
-                        <input 
-                        type="date" 
-                        id="date" 
-                        onChange={changeEventState} 
-                        required autoFocus 
-                        className="form-control" 
-                        placeholder="Date" 
-                        value={currentEvent.date} />
+                        <input
+                            type="date"
+                            id="date"
+                            onChange={changeEventState}
+                            required autoFocus
+                            className="form-control"
+                            placeholder="Date"
+                            value={currentEvent.date} />
                     </div>
                 </fieldset>
                 <fieldset>
                     <div className="form-group">
                         <label htmlFor="time">Time: </label>
-                        <input 
-                        type="time" 
-                        id="time" 
-                        onChange={changeEventState} 
-                        required autoFocus 
-                        className="form-control" 
-                        placeholder="Time" 
-                        value={currentEvent.time} />
+                        <input
+                            type="time"
+                            id="time"
+                            onChange={changeEventState}
+                            required autoFocus
+                            className="form-control"
+                            placeholder="Time"
+                            value={currentEvent.time} />
                     </div>
                 </fieldset>
                 <fieldset>
                     <div className="form-group">
                         <label htmlFor="capacity">Capacity: </label>
-                        <input 
-                        type="number" 
-                        id="capacity" 
-                        onChange={changeEventState} 
-                        required autoFocus 
-                        className="form-control" 
-                        placeholder="Capacity" 
-                        value={currentEvent.capacity} />
+                        <input
+                            type="number"
+                            id="capacity"
+                            onChange={changeEventState}
+                            required autoFocus
+                            className="form-control"
+                            placeholder="Capacity"
+                            value={currentEvent.capacity} />
                     </div>
                 </fieldset>
                 <fieldset>
@@ -111,13 +112,13 @@ export const EditEvent = () => {
                     <div className="form-group">
                         <label htmlFor="details">Event Details: </label>
                         <input t
-                        ype="text" 
-                        id="details" 
-                        onChange={changeEventState} 
-                        required autoFocus 
-                        className="form-control" 
-                        placeholder="Description" 
-                        value={currentEvent.details} />
+                            type="text"
+                            id="details"
+                            onChange={changeEventState}
+                            required autoFocus
+                            className="form-control"
+                            placeholder="Description"
+                            value={currentEvent.details} />
                     </div>
                 </fieldset>
                 <button type="submit"
@@ -136,7 +137,7 @@ export const EditEvent = () => {
                         updateEvent(event)
                             .then(() => navigate(`/events/${currentEvent.id}`))
                     }}
-                    className="btn btn-primary">
+                    className="button-50">
                     Save
                 </button>
             </form>

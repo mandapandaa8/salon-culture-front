@@ -55,7 +55,7 @@ export const RegisterArtist = () => {
             </dialog>
 
             <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Create an Artist Profile</h1>
+                <h2 className="h3 mb-3 font-weight-normal">Create an Artist Profile</h2>
                 <fieldset>
                     <label htmlFor="firstName"> First Name </label>
                     <input ref={firstName} type="text" name="firstName" className="form-control" placeholder="First name" required autoFocus />
@@ -68,7 +68,7 @@ export const RegisterArtist = () => {
                     <label htmlFor="inputUsername">Username</label>
                     <input ref={username} type="text" name="username" className="form-control" placeholder="Username" required />
                 </fieldset>
-                <fieldset> 
+                <fieldset>
                     <label htmlFor="inputEmail"> Email address </label>
                     <input ref={email} type="email" name="email" className="form-control" placeholder="Email address" required />
                 </fieldset>
@@ -92,11 +92,8 @@ export const RegisterArtist = () => {
                     <label htmlFor="verifyPassword"> Verify Password </label>
                     <input ref={verifyPassword} type="password" name="verifyPassword" className="form-control" placeholder="Verify password" required />
                 </fieldset>
-                <fieldset style={{
-                    textAlign: "center"
-                }}>
-                    
-                    <button className="btn btn-1 btn-sep icon-send" type="submit">Register as an Artist</button>
+                <fieldset style={{ textAlign: "center" }}>
+                    <button className="button-50" role="button" type="submit">Register</button>
                 </fieldset>
             </form>
             <section className="link--register">

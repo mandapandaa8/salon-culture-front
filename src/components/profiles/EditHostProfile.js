@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { editHostProfile, getHostById } from "../../managers/HostManager"
+import "./EditProfile.css"
 
 export const EditHost = () => {
     const { hostId } = useParams()
@@ -31,36 +32,36 @@ export const EditHost = () => {
         <form className="hostForm">
             <h2 className="hostForm__title">Edit My Profile</h2>
             <fieldset>
-                <div className="form-group">
+                <div className="edit_profile">
                     <label htmlFor="username">Username: </label>
                     <input type="text" id="username" onChange={changeHostState} required autoFocus className="form-control" placeholder="Username" value={currentHost.username} />
                 </div>
             </fieldset>
             <fieldset>
-                <div className="form-group">
+                <div className="edit_profile">
                     <label htmlFor="email">Email: </label>
                     <input type="text" id="email" onChange={changeHostState} required autoFocus className="form-control" placeholder="Email" value={currentHost.email} />
                 </div>
             </fieldset>
             <fieldset>
-                <div className="form-group"> 
+                <div className="edit_profile"> 
                     <label htmlFor="address">Address: </label>
                     <input type="text" id="address" onChange={changeHostState} required autoFocus className="form-control" placeholder="Address" value={currentHost.address} />
                 </div>
             </fieldset>
             <fieldset>
-                <div className="form-group">
+                <div className="edit_profile">
                     <label htmlFor="description">Description: </label>
                     <input type="text" id="description" onChange={changeHostState} required autoFocus className="form-control" placeholder="Description" value={currentHost.description} />
                 </div>
             </fieldset>
             <fieldset>
-                <div className="form-group">
+                <div className="edit_profile">
                     <label htmlFor="profile_img">Profile Image: </label>
                     <input type="text" id="profile_img" onChange={changeHostState} required autoFocus className="form-control" placeholder="Profile Image" value={currentHost.profile_img} />
                 </div>
             </fieldset>
-            <button className="btn btn-primary"
+            <button className="button-50"
                 onClick={evt => {
                     evt.preventDefault()
                     editHostProfile(currentHost)

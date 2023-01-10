@@ -1,4 +1,4 @@
-import { createEvent, getEvents } from "../../managers/EventManager"
+import { createEvent } from "../../managers/EventManager"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { getAccommodations } from "../../managers/AccommodationManager"
@@ -30,13 +30,13 @@ export const EventForm = () => {
 
     return (
         <>
-            <h1>Create Event</h1>
             <form className="eventForm">
+                <h2>Create Event:</h2>
                 <fieldset>
                     <div className="form-group">
                         <label htmlFor="name">Name: </label>
                         <input
-                            name = "name"
+                            name="name"
                             onChange={changeEventState}
                             required autoFocus
                             className="form-control"
@@ -48,8 +48,8 @@ export const EventForm = () => {
                     <div className="form-group">
                         <label htmlFor="date">Date: </label>
                         <input
-                            name = "date"
-                            type = "date"
+                            name="date"
+                            type="date"
                             onChange={changeEventState}
                             required autoFocus
                             className="form-control"
@@ -61,8 +61,8 @@ export const EventForm = () => {
                     <div className="form-group">
                         <label htmlFor="time">Time: </label>
                         <input
-                            name = "time"
-                            type = "time"
+                            name="time"
+                            type="time"
                             onChange={changeEventState}
                             required autoFocus
                             className="form-control"
@@ -74,8 +74,8 @@ export const EventForm = () => {
                     <div className="form-group">
                         <label htmlFor="capacity">Capacity: </label>
                         <input
-                            name = "capacity"
-                            type = "number"
+                            name="capacity"
+                            type="number"
                             onChange={changeEventState}
                             required autoFocus
                             className="form-control"
@@ -102,7 +102,7 @@ export const EventForm = () => {
                     <div className="form-group">
                         <label htmlFor="details">Event Details: </label>
                         <textarea
-                            name = "details"
+                            name="details"
                             onChange={changeEventState}
                             required autoFocus
                             className="form-control"
@@ -110,7 +110,7 @@ export const EventForm = () => {
                             value={currentEvent.details} />
                     </div>
                 </fieldset>
-                <button className="btn btn-primary"
+                <button className="button-50"
                     onClick={evt => {
                         evt.preventDefault() // Prevent browser from submitting the form
 
@@ -126,7 +126,7 @@ export const EventForm = () => {
                         createEvent(event)
                             .then(() => navigate("/events"))
                     }}>
-                    Create Event
+                    Create
                 </button>
             </form>
         </>
