@@ -1,3 +1,5 @@
+Salon Culture is a full stack application. For the front end I used JavaScript, React, HTML and CSS. The back end uses Python and Django. Salon Culture was created to allow artists and hosts to come together in order to create a space that allows for an in person, formal discussion about art. It is an application that utilizes forms, profiles and events with full CRUD capabilities.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
